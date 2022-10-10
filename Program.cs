@@ -1,3 +1,5 @@
+using webapi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Inyección de dependencias
+builder.Services.AddScoped<IHelloWorldServices, HelloWorldServices>();
 
 var app = builder.Build();
 
@@ -20,7 +25,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseWelcomePage();
+// app.UseWelcomePage();
+app.UseTimeMiddleware();
 
 app.MapControllers();
 
