@@ -34,6 +34,7 @@ public class WeatherForecastController : ControllerBase
   [Route("[action]")] // endpoint con el nombre del metodo
   public IEnumerable<WeatherForecast> GetW()
   {
+    _logger.LogInformation("Retornando la lista de weather forecast");
     return ListWeatherForecasts;
   }
 

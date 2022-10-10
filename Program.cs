@@ -10,7 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Inyección de dependencias
-builder.Services.AddScoped<IHelloWorldServices, HelloWorldServices>();
+//builder.Services.AddScoped<IHelloWorldServices, HelloWorldServices>();
+builder.Services.AddScoped<IHelloWorldServices>(p => new HelloWorldServices());
 
 var app = builder.Build();
 

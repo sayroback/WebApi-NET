@@ -8,12 +8,15 @@ namespace webapi.Controllers;
 public class HelloWorldController : ControllerBase
 {
   IHelloWorldServices helloWorldServices;
-  public HelloWorldController(IHelloWorldServices helloWorld)
+  private readonly ILogger<HelloWorldController> _logger;
+  public HelloWorldController(IHelloWorldServices helloWorld, ILogger<HelloWorldController> logger)
   {
+    _logger = logger;
     helloWorldServices = helloWorld;
   }
   public IActionResult Get()
   {
+    _logger.LogDebug("Retornando un Hola Mundo");
     return Ok(helloWorldServices.GetHelloWorld());
   }
 }
