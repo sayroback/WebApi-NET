@@ -14,6 +14,8 @@ builder.Services.AddSwaggerGen();
 
 // Inyecci�n de dependencias
 //builder.Services.AddScoped<IHelloWorldServices, HelloWorldServices>();
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<ITareasService, TareasService>();
 builder.Services.AddScoped<IHelloWorldServices>(p => new HelloWorldServices());
 
 var app = builder.Build();
