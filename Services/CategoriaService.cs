@@ -33,7 +33,7 @@ public class CategoriaService : ICategoriaService
     }
 
   }
-  public async Task Delete(Guid id, Categoria categoria)
+  public async Task Delete(Guid id)
   {
     var categoriaActual = context.Categorias.Find(id);
 
@@ -52,5 +52,5 @@ public interface ICategoriaService
   IEnumerable<Categoria> Get();
   Task Save(Categoria categoria);
   Task Update(Guid id, Categoria categoria);
-  Task Delete(Guid id, Categoria categoria);
+  Task Delete(Guid id);
 }

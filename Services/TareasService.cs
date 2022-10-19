@@ -31,7 +31,7 @@ public class TareasService : ITareasService
     }
 
   }
-  public async Task Delete(Guid id, Tarea tarea)
+  public async Task Delete(Guid id)
   {
     var tareaActual = context.Tareas.Find(id);
 
@@ -47,8 +47,8 @@ public interface ITareasService
 {
   IEnumerable<Tarea> Get();
   Task Save(Tarea categoria);
-  Task Update(Guid id, Tarea categoria);
-  Task Delete(Guid id, Tarea categoria);
+  Task Update(Guid id, Tarea tarea);
+  Task Delete(Guid id);
 }
 
 
